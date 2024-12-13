@@ -23,9 +23,7 @@
         ring/ring-defaults             {:mvn/version "0.5.0"}
         rum/rum                        {:mvn/version "0.12.11"
                                         :exclusions [cljsjs/react cljsjs/react-dom]}
-        com.biffweb/config             {:git/url "https://github.com/loganrios/biff"
-                                        :git/sha "1a1eccf8d65bf0e26adb0aab3e51c4cd4f81e138"
-                                        :deps/root "libs/config"}}
+        com.biffweb/config             {:local/root "libs/config"}}
  :aliases {:dev {:extra-paths ["test"]
                  :extra-deps {org.slf4j/slf4j-simple {:mvn/version "2.1.0-alpha1"}}
                  :main-opts ["-m" "nrepl.cmdline"]}

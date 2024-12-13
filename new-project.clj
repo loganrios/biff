@@ -3,7 +3,7 @@
             [clojure.java.io :as io]
             [clojure.string :as str]))
 
-(def repo-url "https://github.com/jacobobryant/biff")
+(def repo-url "https://github.com/loganrios/biff")
 
 (defn sh
   [& args]
