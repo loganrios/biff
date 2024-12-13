@@ -38,7 +38,6 @@
                           :exts [".html"]}))
 
 (defn on-save [ctx]
-  (biff/add-libs)
   (biff/eval-files! ctx)
   (generate-assets! ctx)
   (test/run-all-tests #"com.example.*-test"))

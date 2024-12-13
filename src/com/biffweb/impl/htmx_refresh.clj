@@ -1,7 +1,7 @@
 (ns com.biffweb.impl.htmx-refresh
   (:require [com.biffweb.impl.rum :as brum]
             [clojure.string :as str]
-            [ring.adapter.jetty9 :as jetty]
+            [ring.websocket :as rws]
             [ring.util.response :as ru-response]
             [rum.core :as rum]))
 
@@ -10,7 +10,7 @@
               [:div#biff-refresh {:hx-swap-oob "innerHTML"}
                content])]
     (doseq [ws @clients]
-      (jetty/send! ws html))))
+      (rws/send ws html))))
 
 (defn ws-handler [{:keys [biff.refresh/clients] :as ctx}]
   {:status 101

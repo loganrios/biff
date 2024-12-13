@@ -267,15 +267,6 @@
       (f ctx result))
     result))
 
-(defn add-libs
-  "Loads new dependencies in deps.edn via tools.deps.alpha.
-
-  Ensures that a DynamicClassLoader is available so that this works even when
-  not evaluated from the repl. See
-  https://ask.clojure.org/index.php/10761/clj-behaves-different-in-the-repl-as-opposed-to-from-a-file"
-  []
-  (util/add-libs))
-
 (defn delete-old-files
   "Deletes files descended from the given directory that are older than a given threshold.
 
@@ -894,16 +885,6 @@
   (time/add-seconds date seconds))
 
 ;;;; Misc
-
-(defn use-hawk
-  "Deprecated. Use use-beholder instead.
-
-  use-beholder is a drop-in replacement for use-hawk, except that keys must be
-  prefixed with :biff.beholder/ instead of :biff.hawk/"
-  [{:biff.hawk/keys [on-save exts paths]
-    :or {paths ["src" "resources"]}
-    :as ctx}]
-  (misc/use-hawk ctx))
 
 (defn use-beholder
   "A Biff component that runs code when files are changed, via Beholder.

@@ -5,7 +5,7 @@
             [com.example.settings :as settings]
             [rum.core :as rum]
             [xtdb.api :as xt]
-            [ring.adapter.jetty9 :as jetty]
+            [ring.websocket :as rws]
             [cheshire.core :as cheshire]))
 
 (defn set-foo [{:keys [session params] :as ctx}]
@@ -54,7 +54,7 @@
                       [:div#messages {:hx-swap-oob "afterbegin"}
                        (message doc)])]
           ws @chat-clients]
-    (jetty/send! ws html)))
+    (rws/send ws html)))
 
 (defn send-message [{:keys [session] :as ctx} {:keys [text]}]
   (let [{:keys [text]} (cheshire/parse-string text true)]
